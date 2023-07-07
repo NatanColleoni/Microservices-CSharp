@@ -1,11 +1,12 @@
 using GeekShopping.Product.API.Data.Context;
+using GeekShopping.Product.API.IoC;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.ResolveDependencies();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 var connection = builder.Configuration.GetConnectionString("MySQLConnectionString");

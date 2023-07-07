@@ -8,6 +8,6 @@ namespace GeekShopping.Product.API.Data.Repository
         Task<ProductVO> FindById(int id);
         Task<ProductVO> Create(ProductVO product);
         Task<ProductVO> Update(ProductVO product);
-        Task<ProductVO> Delete(int id);
+        Task<bool> Delete(int id);
     }
 }
