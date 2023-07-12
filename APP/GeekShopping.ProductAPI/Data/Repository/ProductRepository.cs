@@ -1,6 +1,7 @@
 ﻿using GeekShopping.Product.API.Data.Context;
 using GeekShopping.Product.API.Data.ValueObjects;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace GeekShopping.Product.API.Data.Repository
 {
@@ -16,7 +17,8 @@ namespace GeekShopping.Product.API.Data.Repository
         public async Task<IEnumerable<ProductVO>> FindAll()
         {
             var products = await _context.Products.AsNoTracking().ToListAsync();
-            return (IEnumerable<ProductVO>)products.AsEnumerable();
+
+            return products.Select(x => (ProductVO)x);
         }
 
         public async Task<ProductVO> FindById(int id)
