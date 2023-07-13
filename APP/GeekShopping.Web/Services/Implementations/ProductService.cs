@@ -51,7 +51,7 @@ namespace GeekShopping.Web.Services.Implementations
             var response = await _httpClient.DeleteAsync($"{BasePath}/{id}");
 
             if (response.IsSuccessStatusCode)
-                return await response.ReadContentAsync<bool>();
+                return true;
 
             throw new Exception("Deu ruim no micro de Produtos"); // Vai virar notification pattern
         }

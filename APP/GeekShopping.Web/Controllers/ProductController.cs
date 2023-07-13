@@ -31,7 +31,7 @@ namespace GeekShopping.Web.Controllers
             {
                 var response = await _service.Create(product);
                 
-                if (response is not null) return RedirectToAction(nameof(response));
+                if (response is not null) return RedirectToAction(nameof(Index));
             }
 
             return View();
@@ -55,6 +55,24 @@ namespace GeekShopping.Web.Controllers
                 if (response is not null) return RedirectToAction(nameof(Index));
             }
 
+            return View();
+        }
+
+        public async Task<IActionResult> DeleteView(int id)
+        {
+            var product = await _service.FindById(id);
+            if (product is not null) return View(product);
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(ProductModel product)
+        {
+            
+            var response = await _service.DeleteById(product.Id);
+            if (response) return RedirectToAction(nameof(Index));
+            
             return View();
         }
     }

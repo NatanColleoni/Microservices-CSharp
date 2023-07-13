@@ -1,0 +1,79 @@
+﻿@model ProductModel
+
+<form asp-controller="Product" asp-action="Delete">
+    <input asp-for="Id" hidden/>
+    <br/>
+    <div class="container border p-3">
+        <h1 class="text" style="color: #d97706">Update Product</h1>
+
+        <hr/>
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            @*name*@
+            <div>
+                <div class="col-2">
+                    <label asp-for="Name" class="control-label pt-2" style="font-size: 1.375rem;"></label>
+                </div>
+                <div class="col pb-3">
+                    <input asp-for="Name" disabled class="form-control" />
+                </div>
+            </div>
+            
+
+            @*price*@
+            <div>
+                <div class="col-2">
+                    <label asp-for="Price" class="control-label pt-2" style="font-size: 1.375rem;"></label>
+                </div>
+                <div class="col pb-3">
+                    <input asp-for="Price" disabled class="form-control" />
+                </div>
+            </div>
+
+            @*description*@
+            <div>
+                <div class="col-2">
+                    <label asp-for="Description" class="control-label pt-2" style="font-size: 1.375rem;"></label>
+                </div>
+                <div class="col pb-3">
+                    <input asp-for="Description" disabled class="form-control" />
+                </div>
+            </div>
+
+            @*category*@
+            <div>
+                <div class="col-2">
+                    <label asp-for="CategoryName" class="control-label pt-2" style="font-size: 1.375rem;"></label>
+                </div>
+                <div class="col pb-3">
+                    <input asp-for="CategoryName" disabled class="form-control" />
+                </div>
+            </div>
+
+            @*image*@
+            <div>
+                <div class="col-2">
+                    <label asp-for="ImageUrl" class="control-label pt-2" style="font-size: 1.375rem;"></label>
+                </div>
+                <div class="col pb-3">
+                    <input asp-for="ImageUrl" disabled class="form-control" />
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <div class="col-2">
+                    <a asp-action="Index" class="btn btn-primary form-control">Back</a>
+                </div>
+                <div class="col-2">
+                    <input type="submit" value="Delete" class="btn btn-danger form-control"/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial">
+}
